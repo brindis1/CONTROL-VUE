@@ -125,56 +125,51 @@ const explanation = computed(() => {
 }
 
 .status-indicator {
-  width: 9px;
-  height: 9px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: #f43f5e;
-  box-shadow: 0 0 6px #f43f5e;
+  background: #94a3b8;
   transition: all var(--transition-fast);
 }
 
 .status-indicator.active {
-  background: var(--vue-green-light);
-  box-shadow: 0 0 8px var(--vue-green);
+  background: var(--vue-green);
 }
 
 .title-text {
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 500;
   color: var(--text-primary);
 }
 
 .dom-view {
-  padding: 1.25rem;
+  padding: 1rem;
 }
 
 .dom-node-card {
-  padding: 1rem;
+  padding: 0.85rem;
   border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px dashed rgba(255, 255, 255, 0.15);
+  background: var(--bg-surface);
+  border: 1px dashed var(--border-color);
   transition: all var(--transition-smooth);
 }
 
 .dom-node-card.node-active {
-  border-color: rgba(66, 184, 131, 0.4);
-  background: rgba(66, 184, 131, 0.04);
+  border-color: var(--vue-green);
 }
 
 .dom-node-card.node-hidden {
-  border-color: rgba(245, 158, 11, 0.4);
-  background: rgba(245, 158, 11, 0.03);
-  opacity: 0.8;
+  border-color: var(--accent-amber);
+  opacity: 0.85;
 }
 
 .dom-node-card.node-unmounted {
-  border-color: rgba(244, 63, 94, 0.3);
-  background: rgba(244, 63, 94, 0.03);
+  border-color: var(--border-color);
 }
 
 .node-tag {
-  color: #94a3b8;
-  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-size: 0.82rem;
 }
 
 .tag-bracket {

@@ -92,7 +92,7 @@
                 v-model="searchQuery" 
                 type="text" 
                 class="form-input" 
-                placeholder="🔍 Buscar tecnología por nombre..."
+                placeholder="Buscar tecnología..."
               />
             </div>
 
@@ -111,10 +111,10 @@
 
             <div class="actions-group">
               <button type="button" class="btn btn-sm btn-secondary" @click="reverseList">
-                ↕️ Invertir Orden
+                Invertir Orden
               </button>
               <button type="button" class="btn btn-sm btn-primary" @click="addNewItem">
-                ➕ Añadir Ítem
+                Añadir Ítem
               </button>
             </div>
           </div>
@@ -187,10 +187,10 @@
 
           <div class="bug-controls-box mb-3">
             <button type="button" class="btn btn-danger btn-sm" @click="deleteFirstElements">
-              🚨 Eliminar el Primer Elemento de AMBAS Listas
+              Eliminar Primer Elemento
             </button>
             <button type="button" class="btn btn-secondary btn-sm" @click="resetBugDemo">
-              🔄 Restaurar Listas Originales
+              Restaurar Listas
             </button>
           </div>
 
@@ -198,7 +198,7 @@
             <!-- Incorrect list: :key="index" -->
             <div class="bug-column bug-wrong">
               <div class="bug-col-header">
-                <span class="badge badge-rose">❌ Antipatrón: :key="index"</span>
+                <span class="badge badge-rose">:key="index"</span>
                 <small class="text-rose">El estado del input se desincroniza</small>
               </div>
 
@@ -228,7 +228,7 @@
             <!-- Correct list: :key="item.id" -->
             <div class="bug-column bug-correct">
               <div class="bug-col-header">
-                <span class="badge badge-vue">✔️ Mejor Práctica: :key="item.id"</span>
+                <span class="badge badge-vue">:key="item.id"</span>
                 <small class="text-vue">El estado viaja fielmente con su ítem</small>
               </div>
 

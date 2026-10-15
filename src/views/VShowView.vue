@@ -104,12 +104,12 @@
                 class="btn btn-primary"
                 @click="isVisible = !isVisible"
               >
-                <span>{{ isVisible ? '🙈 Ocultar Ambos Elementos' : '👁️ Mostrar Ambos Elementos' }}</span>
+                <span>{{ isVisible ? 'Ocultar Elementos' : 'Mostrar Elementos' }}</span>
               </button>
 
               <span class="status-indicator-text">
-                Estado de la variable reactiva <code>isVisible</code>: 
-                <strong :class="isVisible ? 'text-vue' : 'text-rose'">{{ isVisible }}</strong>
+                Estado reactivo <code>isVisible</code>: 
+                <strong>{{ isVisible }}</strong>
               </span>
             </div>
           </div>
@@ -119,13 +119,13 @@
             <!-- Box A: v-show -->
             <div class="card-box test-show-card">
               <div class="card-box-header">
-                <span class="badge badge-cyan">v-show="isVisible"</span>
-                <span class="badge badge-vue">Estado Persistente</span>
+                <span class="badge">v-show="isVisible"</span>
+                <span class="badge badge-vue">Persistente</span>
               </div>
 
               <!-- The actual v-show element -->
               <div v-show="isVisible" class="test-element show-element">
-                <h4>🟢 Elemento controlado con v-show</h4>
+                <h4>Elemento con v-show</h4>
                 <p>Este nodo <strong>permanece en el DOM</strong> aunque esté oculto.</p>
 
                 <div class="form-group mt-3">
@@ -152,13 +152,13 @@
             <!-- Box B: v-if -->
             <div class="card-box test-if-card">
               <div class="card-box-header">
-                <span class="badge badge-rose">v-if="isVisible"</span>
-                <span class="badge badge-amber">Estado Efímero</span>
+                <span class="badge">v-if="isVisible"</span>
+                <span class="badge">Efímero</span>
               </div>
 
               <!-- The actual v-if element -->
               <div v-if="isVisible" class="test-element if-element">
-                <h4>🔴 Elemento controlado con v-if</h4>
+                <h4>Elemento con v-if</h4>
                 <p>Este nodo <strong>se destruye físicamente</strong> al ser false.</p>
 
                 <div class="form-group mt-3">

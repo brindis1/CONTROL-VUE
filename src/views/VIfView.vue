@@ -100,8 +100,7 @@
                   :class="selectedRole === r.id ? 'btn-primary' : 'btn-secondary'"
                   @click="selectedRole = r.id"
                 >
-                  <span>{{ r.emoji }}</span>
-                  <span>{{ r.label }}</span>
+                  {{ r.label }}
                 </button>
               </div>
             </div>
@@ -114,41 +113,41 @@
             <!-- v-if block -->
             <div v-if="selectedRole === 'admin'" class="role-box role-admin">
               <div class="role-box-header">
-                <span class="badge badge-rose">v-if="selectedRole === 'admin'"</span>
-                <span class="status-pill admin-pill">Superusuario</span>
+                <span class="badge">v-if="selectedRole === 'admin'"</span>
+                <span class="status-pill">Administrador</span>
               </div>
-              <h3>👑 Panel de Administración Total</h3>
-              <p>Tienes acceso irrestricto: gestión de base de datos, auditoría de seguridad y eliminación de cuentas.</p>
+              <h3>Panel de Administración</h3>
+              <p>Acceso completo a configuración del sistema, auditoría de base de datos y control de usuarios.</p>
               <div class="role-actions">
-                <button class="btn btn-sm btn-primary">Acceder a Configuración Servidor</button>
-                <button class="btn btn-sm btn-secondary">Auditoría Global</button>
+                <button class="btn btn-sm btn-primary">Configuración</button>
+                <button class="btn btn-sm btn-secondary">Auditoría</button>
               </div>
             </div>
 
             <!-- v-else-if editor -->
             <div v-else-if="selectedRole === 'editor'" class="role-box role-editor">
               <div class="role-box-header">
-                <span class="badge badge-purple">v-else-if="selectedRole === 'editor'"</span>
-                <span class="status-pill editor-pill">Creador de Contenido</span>
+                <span class="badge">v-else-if="selectedRole === 'editor'"</span>
+                <span class="status-pill">Editor</span>
               </div>
-              <h3>✍️ Panel Editorial</h3>
-              <p>Puedes redactar, editar y publicar artículos, moderar comentarios y gestionar la biblioteca multimedia.</p>
+              <h3>Panel Editorial</h3>
+              <p>Permisos de redacción, publicación y gestión de artículos en el repositorio de contenido.</p>
               <div class="role-actions">
-                <button class="btn btn-sm btn-secondary">Crear Nueva Publicación</button>
-                <button class="btn btn-sm btn-secondary">Revisar Borradores</button>
+                <button class="btn btn-sm btn-secondary">Crear Publicación</button>
+                <button class="btn btn-sm btn-secondary">Borradores</button>
               </div>
             </div>
 
             <!-- v-else-if user -->
             <div v-else-if="selectedRole === 'user'" class="role-box role-user">
               <div class="role-box-header">
-                <span class="badge badge-cyan">v-else-if="selectedRole === 'user'"</span>
-                <span class="status-pill user-pill">Usuario Registrado</span>
+                <span class="badge">v-else-if="selectedRole === 'user'"</span>
+                <span class="status-pill">Usuario</span>
               </div>
-              <h3>👤 Mi Perfil Personal</h3>
-              <p>Bienvenido de vuelta. Puedes leer historias, comentar en publicaciones y guardar tus contenidos favoritos.</p>
+              <h3>Perfil de Usuario</h3>
+              <p>Sesión activa estándar. Permite interactuar con la plataforma y guardar preferencias.</p>
               <div class="role-actions">
-                <button class="btn btn-sm btn-secondary">Editar Mi Perfil</button>
+                <button class="btn btn-sm btn-secondary">Editar Perfil</button>
               </div>
             </div>
 
@@ -156,20 +155,20 @@
             <div v-else-if="selectedRole === 'banned'" class="role-box role-banned">
               <div class="role-box-header">
                 <span class="badge badge-rose">v-else-if="selectedRole === 'banned'"</span>
-                <span class="status-pill banned-pill">Restringido</span>
+                <span class="status-pill text-rose">Suspendido</span>
               </div>
-              <h3>🚫 Cuenta Bloqueada</h3>
-              <p>Tu cuenta ha sido suspendida temporalmente por violar las normas de la comunidad.</p>
+              <h3>Cuenta Suspendida</h3>
+              <p>Tu cuenta ha sido restringida administrativamente.</p>
             </div>
 
             <!-- v-else (guest) -->
             <div v-else class="role-box role-guest">
               <div class="role-box-header">
-                <span class="badge badge-amber">v-else (Visitante Anónimo)</span>
-                <span class="status-pill guest-pill">Público</span>
+                <span class="badge">v-else (Visitante)</span>
+                <span class="status-pill">Anónimo</span>
               </div>
-              <h3>👋 Bienvenido, Visitante</h3>
-              <p>Por favor, regístrate o inicia sesión para participar en los foros y acceder a herramientas exclusivas.</p>
+              <h3>Acceso de Invitado</h3>
+              <p>Inicia sesión para interactuar con todas las funcionalidades de la aplicación.</p>
               <div class="role-actions">
                 <button class="btn btn-sm btn-primary">Iniciar Sesión</button>
               </div>
@@ -311,11 +310,11 @@ import DomVisualizer from '../components/DomVisualizer.vue'
 import CalloutCard from '../components/CalloutCard.vue'
 
 const availableRoles = [
-  { id: 'admin', label: 'Administrador', emoji: '👑' },
-  { id: 'editor', label: 'Editor', emoji: '✍️' },
-  { id: 'user', label: 'Usuario', emoji: '👤' },
-  { id: 'banned', label: 'Bloqueado', emoji: '🚫' },
-  { id: 'guest', label: 'Visitante (Guest)', emoji: '👋' }
+  { id: 'admin', label: 'Administrador' },
+  { id: 'editor', label: 'Editor' },
+  { id: 'user', label: 'Usuario' },
+  { id: 'banned', label: 'Suspendido' },
+  { id: 'guest', label: 'Invitado' }
 ]
 
 const selectedRole = ref('admin')
@@ -494,48 +493,34 @@ const fetchData = async () => {
 }
 
 .role-box {
-  padding: 1.6rem;
+  padding: 1.25rem;
   border-radius: var(--radius-md);
-  animation: fadeIn 0.3s ease;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--border-color);
+  animation: fadeIn 0.2s ease;
 }
 
-.role-admin {
-  background: rgba(244, 63, 94, 0.08);
-  border: 1px solid rgba(244, 63, 94, 0.3);
-}
-
-.role-editor {
-  background: rgba(168, 85, 247, 0.08);
-  border: 1px solid rgba(168, 85, 247, 0.3);
-}
-
-.role-user {
-  background: rgba(6, 182, 212, 0.08);
-  border: 1px solid rgba(6, 182, 212, 0.3);
-}
-
-.role-banned {
-  background: rgba(239, 68, 68, 0.12);
-  border: 1px solid rgba(239, 68, 68, 0.4);
-}
-
-.role-guest {
-  background: rgba(245, 158, 11, 0.08);
-  border: 1px solid rgba(245, 158, 11, 0.3);
-}
+.role-admin { border-left-color: var(--accent-rose); }
+.role-editor { border-left-color: var(--accent-purple); }
+.role-user { border-left-color: var(--accent-cyan); }
+.role-banned { border-left-color: #ef4444; }
+.role-guest { border-left-color: var(--text-muted); }
 
 .role-box-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
 }
 
 .status-pill {
-  font-size: 0.75rem;
-  padding: 0.2rem 0.6rem;
-  border-radius: var(--radius-full);
-  font-weight: 600;
+  font-size: 0.72rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
 }
 
 .admin-pill { background: rgba(244, 63, 94, 0.2); color: var(--accent-rose); }

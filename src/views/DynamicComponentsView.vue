@@ -118,8 +118,7 @@
               :class="{ 'tab-btn-active': currentTab === tab.id }"
               @click="currentTab = tab.id"
             >
-              <span class="tab-emoji">{{ tab.emoji }}</span>
-              <span class="tab-name">{{ tab.name }}</span>
+              {{ tab.name }}
             </button>
           </div>
 
@@ -199,8 +198,8 @@ const TabEditor = defineComponent({
   template: `
     <div class="tab-inner">
       <div class="tab-inner-header">
-        <h4>📝 Editor de Texto Enriquecido</h4>
-        <span class="badge badge-cyan">Estado local: {{ wordCount }} palabras</span>
+        <h4>Editor de Notas</h4>
+        <span class="badge">Estado local: {{ wordCount }} palabras</span>
       </div>
       <p class="tab-instruction">Escribe cualquier texto aquí abajo. Luego cambia a otra pestaña y vuelve para comprobar la persistencia de datos:</p>
       <textarea v-model="text" class="form-input editor-textarea" rows="4"></textarea>
@@ -219,8 +218,8 @@ const TabAnalytics = defineComponent({
   template: `
     <div class="tab-inner">
       <div class="tab-inner-header">
-        <h4>📊 Métricas y Analítica en Tiempo Real</h4>
-        <span class="badge badge-vue">Dashboard KPI</span>
+        <h4>Métricas y Analítica</h4>
+        <span class="badge">Dashboard KPI</span>
       </div>
       <div class="analytics-metrics-grid">
         <div class="metric-card">
@@ -250,8 +249,8 @@ const TabSettings = defineComponent({
   template: `
     <div class="tab-inner">
       <div class="tab-inner-header">
-        <h4>⚙️ Configuración del Sistema</h4>
-        <span class="badge badge-amber">Preferencias</span>
+        <h4>Configuración del Sistema</h4>
+        <span class="badge">Preferencias</span>
       </div>
       <div class="settings-stack">
         <label class="toggle-switch">
@@ -292,7 +291,7 @@ const TabServer = defineComponent({
   template: `
     <div class="tab-inner">
       <div class="tab-inner-header">
-        <h4>🖥️ Registro del Servidor</h4>
+        <h4>Registro del Servidor</h4>
         <button type="button" class="btn btn-sm btn-secondary" @click="addLog">Enviar Ping</button>
       </div>
       <div class="console-box">
@@ -303,10 +302,10 @@ const TabServer = defineComponent({
 })
 
 const availableTabs = [
-  { id: 'editor', name: 'Editor de Notas', emoji: '✍️', component: TabEditor },
-  { id: 'analytics', name: 'Analítica', emoji: '📊', component: TabAnalytics },
-  { id: 'settings', name: 'Ajustes', emoji: '⚙️', component: TabSettings },
-  { id: 'server', name: 'Consola', emoji: '🖥️', component: TabServer }
+  { id: 'editor', name: 'Editor de Notas', component: TabEditor },
+  { id: 'analytics', name: 'Analítica', component: TabAnalytics },
+  { id: 'settings', name: 'Ajustes', component: TabSettings },
+  { id: 'server', name: 'Consola', component: TabServer }
 ]
 
 const currentTabComponent = computed(() => {

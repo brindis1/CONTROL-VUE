@@ -50,22 +50,23 @@ defineProps({
 <style scoped>
 .callout-card {
   display: flex;
-  gap: 1rem;
-  padding: 1.15rem 1.4rem;
+  gap: 0.85rem;
+  padding: 1rem 1.15rem;
   border-radius: var(--radius-md);
-  margin: 1.4rem 0;
-  border: 1px solid transparent;
-  backdrop-filter: blur(8px);
+  margin: 1.25rem 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--text-muted);
 }
 
 .callout-icon-box {
   flex-shrink: 0;
-  margin-top: 0.15rem;
+  margin-top: 0.1rem;
 }
 
 .callout-icon {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
 }
 
 .callout-content {
@@ -73,49 +74,39 @@ defineProps({
 }
 
 .callout-title {
-  font-weight: 700;
-  font-size: 0.98rem;
-  margin-bottom: 0.35rem;
+  font-weight: 600;
+  font-size: 0.92rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
 }
 
 .callout-body {
-  font-size: 0.93rem;
-  line-height: 1.6;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
 }
 
 /* Tip */
 .callout-tip {
-  background: rgba(66, 184, 131, 0.08);
-  border-color: rgba(66, 184, 131, 0.25);
-  color: var(--text-primary);
+  border-left-color: var(--vue-green);
 }
-.callout-tip .callout-icon { color: var(--vue-green-light); }
-.callout-tip .callout-title { color: var(--vue-green-light); }
+.callout-tip .callout-icon { color: var(--vue-green); }
 
 /* Warning */
 .callout-warning {
-  background: rgba(245, 158, 11, 0.08);
-  border-color: rgba(245, 158, 11, 0.25);
-  color: var(--text-primary);
+  border-left-color: var(--accent-amber);
 }
 .callout-warning .callout-icon { color: var(--accent-amber); }
-.callout-warning .callout-title { color: var(--accent-amber); }
 
 /* Rule */
 .callout-rule {
-  background: rgba(244, 63, 94, 0.08);
-  border-color: rgba(244, 63, 94, 0.25);
-  color: var(--text-primary);
+  border-left-color: var(--accent-rose);
 }
 .callout-rule .callout-icon { color: var(--accent-rose); }
-.callout-rule .callout-title { color: var(--accent-rose); }
 
 /* Info */
 .callout-info {
-  background: rgba(6, 182, 212, 0.08);
-  border-color: rgba(6, 182, 212, 0.25);
-  color: var(--text-primary);
+  border-left-color: var(--accent-cyan);
 }
 .callout-info .callout-icon { color: var(--accent-cyan); }
-.callout-info .callout-title { color: var(--accent-cyan); }
 </style>

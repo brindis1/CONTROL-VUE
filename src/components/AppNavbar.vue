@@ -7,7 +7,7 @@
         @click="$emit('toggle-sidebar')"
         aria-label="Abrir menú"
       >
-        <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" fill="none" stroke-width="2">
+        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="2">
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -15,7 +15,7 @@
       </button>
 
       <div class="breadcrumb">
-        <router-link to="/" class="breadcrumb-item">Estructuras de Control</router-link>
+        <router-link to="/" class="breadcrumb-item">Estructuras</router-link>
         <span class="breadcrumb-separator">/</span>
         <span class="breadcrumb-current">{{ currentRouteName }}</span>
       </div>
@@ -26,13 +26,13 @@
       <div class="jump-selector-wrapper">
         <label for="route-jump" class="sr-only">Ir a estructura</label>
         <select id="route-jump" class="jump-select" :value="$route.path" @change="onSelectRoute($event.target.value)">
-          <option value="/">🏠 Inicio (Overview)</option>
-          <option value="/v-if">🔀 v-if / v-else-if / v-else</option>
-          <option value="/v-show">👁️ v-show (Visibilidad CSS)</option>
-          <option value="/v-for">🔁 v-for (Listas y :key)</option>
-          <option value="/template-control">🧱 &lt;template&gt; & v-for con v-if</option>
-          <option value="/componentes-dinamicos">⚙️ &lt;component :is&gt;</option>
-          <option value="/optimizacion">⚡ v-memo & v-once</option>
+          <option value="/">Inicio (Resumen)</option>
+          <option value="/v-if">v-if / v-else-if / v-else</option>
+          <option value="/v-show">v-show (CSS display)</option>
+          <option value="/v-for">v-for (Listas y :key)</option>
+          <option value="/template-control">&lt;template&gt; & v-for</option>
+          <option value="/componentes-dinamicos">&lt;component :is&gt;</option>
+          <option value="/optimizacion">v-memo & v-once</option>
         </select>
       </div>
 
@@ -44,7 +44,7 @@
         :title="isDark ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'"
       >
         <!-- Sun for light mode switch -->
-        <svg v-if="isDark" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2">
+        <svg v-if="isDark" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2">
           <circle cx="12" cy="12" r="5"></circle>
           <line x1="12" y1="1" x2="12" y2="3"></line>
           <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -56,21 +56,20 @@
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
         </svg>
         <!-- Moon for dark mode switch -->
-        <svg v-else viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2">
+        <svg v-else viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
       </button>
 
-      <!-- Vue 3 Doc Badge -->
+      <!-- Vue 3 Doc link -->
       <a 
         href="https://vuejs.org/guide/essentials/conditional.html" 
         target="_blank" 
         rel="noopener noreferrer" 
-        class="vue-badge-link"
+        class="vue-doc-link"
         title="Documentación Oficial de Vue 3"
       >
-        <span class="dot-online"></span>
-        <span>Vue 3.5+</span>
+        Docs Vue
       </a>
     </div>
   </header>
@@ -88,7 +87,7 @@ const router = useRouter()
 const isDark = ref(true)
 
 const currentRouteName = computed(() => {
-  if (route.path === '/') return 'Visión General'
+  if (route.path === '/') return 'Resumen'
   return route.meta?.title?.split('|')[0]?.trim() || route.name
 })
 
@@ -117,9 +116,8 @@ onMounted(() => {
 <style scoped>
 .navbar {
   height: var(--header-height);
-  padding: 0 2rem;
-  background: var(--bg-glass);
-  backdrop-filter: blur(14px);
+  padding: 0 1.75rem;
+  background: var(--bg-surface);
   border-bottom: 1px solid var(--border-color);
   display: flex;
   align-items: center;
@@ -132,7 +130,7 @@ onMounted(() => {
 .navbar-left {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .mobile-toggle-btn {
@@ -141,7 +139,7 @@ onMounted(() => {
   border: none;
   color: var(--text-primary);
   cursor: pointer;
-  padding: 0.35rem;
+  padding: 0.25rem;
   border-radius: var(--radius-sm);
 }
 
@@ -152,17 +150,17 @@ onMounted(() => {
 .breadcrumb {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
+  gap: 0.45rem;
+  font-size: 0.86rem;
 }
 
 .breadcrumb-item {
-  color: var(--text-secondary);
-  font-weight: 500;
+  color: var(--text-muted);
 }
 
 .breadcrumb-item:hover {
-  color: var(--vue-green);
+  color: var(--text-primary);
+  text-decoration: none;
 }
 
 .breadcrumb-separator {
@@ -171,40 +169,34 @@ onMounted(() => {
 
 .breadcrumb-current {
   color: var(--text-primary);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.65rem;
 }
 
 .jump-select {
-  padding: 0.4rem 0.8rem;
+  padding: 0.35rem 0.65rem;
   background: var(--bg-surface-elevated);
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   color: var(--text-primary);
   font-family: var(--font-main);
-  font-size: 0.85rem;
-  font-weight: 500;
+  font-size: 0.82rem;
   cursor: pointer;
   outline: none;
-  transition: border-color var(--transition-fast);
-}
-
-.jump-select:focus {
-  border-color: var(--vue-green);
 }
 
 .theme-btn {
-  width: 38px;
-  height: 38px;
-  border-radius: var(--radius-md);
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
   background: var(--bg-surface-elevated);
   border: 1px solid var(--border-color);
-  color: var(--text-primary);
+  color: var(--text-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -213,36 +205,23 @@ onMounted(() => {
 }
 
 .theme-btn:hover {
-  border-color: var(--vue-green);
-  color: var(--vue-green);
-  transform: translateY(-1px);
+  color: var(--text-primary);
+  border-color: var(--border-color-hover);
 }
 
-.vue-badge-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.35rem 0.75rem;
-  background: rgba(66, 184, 131, 0.12);
-  border: 1px solid rgba(66, 184, 131, 0.3);
-  border-radius: var(--radius-full);
-  color: var(--vue-green-light);
-  font-size: 0.82rem;
-  font-weight: 600;
-  transition: all var(--transition-fast);
+.vue-doc-link {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background: var(--bg-surface-elevated);
 }
 
-.vue-badge-link:hover {
-  background: rgba(66, 184, 131, 0.22);
-  border-color: var(--vue-green);
-}
-
-.dot-online {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--vue-green);
-  box-shadow: 0 0 6px var(--vue-green);
+.vue-doc-link:hover {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-color: var(--border-color-hover);
 }
 
 .sr-only {
@@ -258,18 +237,12 @@ onMounted(() => {
 
 @media (max-width: 900px) {
   .navbar {
-    padding: 0 1.25rem;
+    padding: 0 1rem;
   }
   .mobile-toggle-btn {
     display: inline-flex;
   }
   .jump-selector-wrapper {
-    display: none;
-  }
-  .breadcrumb-item {
-    display: none;
-  }
-  .breadcrumb-separator {
     display: none;
   }
 }

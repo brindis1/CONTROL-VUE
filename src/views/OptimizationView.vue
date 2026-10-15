@@ -224,12 +224,12 @@ const mainCounter = ref(1)
 const selectedUserId = ref(2)
 
 const memoUsers = ref([
-  { id: 1, name: 'Adriana Silva', role: 'Frontend Architect', avatar: '👩‍💻' },
-  { id: 2, name: 'Benjamín Cruz', role: 'UI Engineer', avatar: '👨‍🎨' },
-  { id: 3, name: 'Clara Domínguez', role: 'Product Designer', avatar: '🎨' },
-  { id: 4, name: 'David Navarro', role: 'Backend Dev', avatar: '⚙️' },
-  { id: 5, name: 'Esther Ortiz', role: 'Full Stack', avatar: '🚀' },
-  { id: 6, name: 'Fernando Ruiz', role: 'DevSecOps', avatar: '🛡️' }
+  { id: 1, name: 'Adriana Silva', role: 'Frontend Architect', avatar: 'AS' },
+  { id: 2, name: 'Benjamín Cruz', role: 'UI Engineer', avatar: 'BC' },
+  { id: 3, name: 'Clara Domínguez', role: 'Product Designer', avatar: 'CD' },
+  { id: 4, name: 'David Navarro', role: 'Backend Dev', avatar: 'DN' },
+  { id: 5, name: 'Esther Ortiz', role: 'Full Stack', avatar: 'EO' },
+  { id: 6, name: 'Fernando Ruiz', role: 'DevSecOps', avatar: 'FR' }
 ])
 
 const selectedUser = computed(() => {
@@ -385,18 +385,26 @@ const memoSnippet = `<template>
 }
 
 .memo-card:hover {
-  border-color: var(--accent-cyan);
-  background: var(--bg-surface-elevated);
+  border-color: var(--border-color-hover);
 }
 
 .memo-card-selected {
-  border-color: var(--accent-cyan);
-  background: rgba(6, 182, 212, 0.1);
-  box-shadow: 0 0 14px var(--accent-cyan-glow);
+  border-color: var(--vue-green);
+  background: var(--bg-surface-elevated);
 }
 
 .memo-avatar {
-  font-size: 1.8rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--bg-app);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
 .memo-info {
@@ -412,8 +420,8 @@ const memoSnippet = `<template>
 
 .memo-status-tag {
   font-size: 0.72rem;
-  font-weight: 700;
-  padding: 0.2rem 0.5rem;
+  font-weight: 600;
+  padding: 0.15rem 0.45rem;
   border-radius: var(--radius-sm);
   background: var(--bg-surface-elevated);
   border: 1px solid var(--border-color);
@@ -421,9 +429,9 @@ const memoSnippet = `<template>
 }
 
 .memo-card-selected .memo-status-tag {
-  background: var(--accent-cyan);
-  color: #061c14;
-  border-color: var(--accent-cyan);
+  background: var(--vue-green);
+  color: #ffffff;
+  border-color: var(--vue-green);
 }
 
 /* Lab 3 Pre */
