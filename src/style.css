@@ -3,19 +3,19 @@
    ========================================================================== */
 
 :root {
-  /* Color Palette - Dark Mode (Sleek, Minimal Slate/Zinc) */
-  --bg-app: #0f1115;
-  --bg-surface: #17191e;
-  --bg-surface-elevated: #1f2229;
-  --bg-surface-hover: #262a33;
-  --bg-glass: rgba(23, 25, 30, 0.95);
-  --border-color: #272a33;
-  --border-color-hover: #3b404d;
-  --border-subtle: #1e2129;
+  /* Color Palette - Light Mode Default (Clean, Neutral) */
+  --bg-app: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #f1f5f9;
+  --bg-surface-hover: #e2e8f0;
+  --bg-glass: rgba(255, 255, 255, 0.95);
+  --border-color: #e2e8f0;
+  --border-color-hover: #cbd5e1;
+  --border-subtle: #f1f5f9;
 
-  /* Subdued Accent (Classic Vue Green - Not Neon) */
+  /* Subdued Accent (Vue Green) */
   --vue-green: #3ea675;
-  --vue-green-light: #42b883;
+  --vue-green-light: #2e8b5e;
   --vue-dark: #2c3e50;
 
   --accent-cyan: #0284c7;
@@ -27,20 +27,20 @@
   /* Typography */
   --font-main: 'Outfit', system-ui, -apple-system, sans-serif;
   --font-mono: 'Fira Code', ui-monospace, SFMono-Regular, monospace;
-  --text-primary: #e6edf3;
-  --text-secondary: #8b949e;
-  --text-muted: #6e7681;
-  --text-inverse: #0f1115;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-inverse: #ffffff;
 
-  /* Code Syntax Colors (Soft, Legible) */
-  --code-bg: #12141a;
-  --code-border: #232731;
-  --syn-tag: #e06c75;
-  --syn-attr: #61afef;
-  --syn-string: #98c379;
-  --syn-keyword: #c678dd;
-  --syn-comment: #5c6370;
-  --syn-directive: #d19a66;
+  /* Code Syntax Colors */
+  --code-bg: #f8fafc;
+  --code-border: #e2e8f0;
+  --syn-tag: #d1242f;
+  --syn-attr: #0550ae;
+  --syn-string: #116329;
+  --syn-keyword: #8250df;
+  --syn-comment: #6e7781;
+  --syn-directive: #953800;
 
   /* UI Tokens */
   --radius-sm: 4px;
@@ -49,34 +49,11 @@
   --radius-full: 9999px;
   --sidebar-width: 270px;
   --header-height: 60px;
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.3);
-  --transition-fast: 0.15s ease;
-  --transition-smooth: 0.2s ease;
-}
-
-/* Light Mode Overrides (Clean, Neutral, Document-like) */
-[data-theme='light'] {
-  --bg-app: #f8fafc;
-  --bg-surface: #ffffff;
-  --bg-surface-elevated: #f1f5f9;
-  --bg-surface-hover: #e2e8f0;
-  --bg-glass: rgba(255, 255, 255, 0.95);
-  --border-color: #e2e8f0;
-  --border-color-hover: #cbd5e1;
-  --border-subtle: #f1f5f9;
-
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #64748b;
-  --text-inverse: #ffffff;
-
-  --code-bg: #f8fafc;
-  --code-border: #e2e8f0;
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --transition-fast: 0.15s ease;
+  --transition-smooth: 0.2s ease;
 }
 
 /* Base Reset */

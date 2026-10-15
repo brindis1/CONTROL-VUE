@@ -36,31 +36,6 @@
         </select>
       </div>
 
-      <!-- Theme Switcher -->
-      <button 
-        type="button" 
-        class="theme-btn" 
-        @click="toggleTheme" 
-        :title="isDark ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'"
-      >
-        <!-- Sun for light mode switch -->
-        <svg v-if="isDark" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2">
-          <circle cx="12" cy="12" r="5"></circle>
-          <line x1="12" y1="1" x2="12" y2="3"></line>
-          <line x1="12" y1="21" x2="12" y2="23"></line>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-          <line x1="1" y1="12" x2="3" y2="12"></line>
-          <line x1="21" y1="12" x2="23" y2="12"></line>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </svg>
-        <!-- Moon for dark mode switch -->
-        <svg v-else viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-      </button>
-
       <!-- Vue 3 Doc link -->
       <a 
         href="https://vuejs.org/guide/essentials/conditional.html" 
@@ -76,15 +51,13 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
 defineEmits(['toggle-sidebar'])
 
 const route = useRoute()
 const router = useRouter()
-
-const isDark = ref(true)
 
 const currentRouteName = computed(() => {
   if (route.path === '/') return 'Resumen'
@@ -94,23 +67,6 @@ const currentRouteName = computed(() => {
 const onSelectRoute = (path) => {
   if (path) router.push(path)
 }
-
-const toggleTheme = () => {
-  isDark.value = !isDark.value
-  const theme = isDark.value ? 'dark' : 'light'
-  document.documentElement.setAttribute('data-theme', theme)
-  localStorage.setItem('vue-control-theme', theme)
-}
-
-onMounted(() => {
-  const saved = localStorage.getItem('vue-control-theme')
-  if (saved) {
-    isDark.value = saved === 'dark'
-  } else {
-    isDark.value = true
-  }
-  document.documentElement.setAttribute('data-theme', isDark.value ? 'dark' : 'light')
-})
 </script>
 
 <style scoped>
@@ -188,25 +144,6 @@ onMounted(() => {
   font-size: 0.82rem;
   cursor: pointer;
   outline: none;
-}
-
-.theme-btn {
-  width: 32px;
-  height: 32px;
-  border-radius: var(--radius-sm);
-  background: var(--bg-surface-elevated);
-  border: 1px solid var(--border-color);
-  color: var(--text-secondary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-
-.theme-btn:hover {
-  color: var(--text-primary);
-  border-color: var(--border-color-hover);
 }
 
 .vue-doc-link {
