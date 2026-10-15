@@ -27,6 +27,17 @@
           <span>Inspección de nodos</span>
         </div>
       </div>
+
+      <!-- Créditos del Proyecto -->
+      <div class="hero-credits-card">
+        <span class="credits-label">Créditos:</span>
+        <div class="credits-badges">
+          <span class="credit-pill">Santiago Salazar Trinidad</span>
+          <span class="credit-pill">Sergio Luna Anton</span>
+          <span class="credit-pill">Axel Nuricumbo Jimenez</span>
+          <span class="credit-pill">Diego Brindis Guizar</span>
+        </div>
+      </div>
     </section>
 
     <!-- Cards Grid -->
@@ -262,6 +273,40 @@ const cards = [
 .summary-item span {
   font-size: 0.8rem;
   color: var(--text-muted);
+}
+
+.hero-credits-card {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.credits-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.credits-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.credit-pill {
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-color);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
 }
 
 /* Sections */

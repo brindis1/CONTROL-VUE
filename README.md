@@ -2,6 +2,12 @@
 
 Aplicación de Página Única (Single Page Application - SPA) construida con **Vue 3 (Composition API)** y **Vue Router 4**, diseñada para enseñar, demostrar e interactuar con cada una de las estructuras de control y directivas de Vue.
 
+### 👥 Créditos / Desarrolladores:
+- **Santiago Salazar Trinidad**
+- **Sergio Luna Anton**
+- **Axel Nuricumbo Jimenez**
+- **Diego Brindis Guizar**
+
 ## 🚀 Tecnologías Utilizadas
 
 - **Vue 3.5+**: Composition API (`<script setup>`), reactividad nativa y compilador de plantillas optimizado.
