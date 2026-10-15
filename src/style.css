@@ -32,15 +32,19 @@
   --text-muted: #64748b;
   --text-inverse: #ffffff;
 
-  /* Code Syntax Colors */
-  --code-bg: #f8fafc;
-  --code-border: #e2e8f0;
-  --syn-tag: #d1242f;
-  --syn-attr: #0550ae;
-  --syn-string: #116329;
-  --syn-keyword: #8250df;
-  --syn-comment: #6e7781;
-  --syn-directive: #953800;
+  /* Code Display - Dedicated Dark Theme for High Contrast & Legibility */
+  --code-bg: #181b20;
+  --code-header-bg: #121418;
+  --code-border: #2c313a;
+  --code-text: #e6edf3;
+
+  /* Code Syntax Highlighting (Vibrant on Dark Background) */
+  --syn-tag: #ff7b72;
+  --syn-attr: #79c0ff;
+  --syn-string: #7ee787;
+  --syn-keyword: #d2a8ff;
+  --syn-comment: #8b949e;
+  --syn-directive: #ffa657;
 
   /* UI Tokens */
   --radius-sm: 4px;
@@ -369,33 +373,55 @@ a:hover {
   background-color: #ffffff;
 }
 
-/* Code Highlights Container */
+/* Code Highlights Container (Dark Background) */
 .code-container {
   background: var(--code-bg);
   border: 1px solid var(--code-border);
   border-radius: var(--radius-md);
   overflow: hidden;
   font-family: var(--font-mono);
-  font-size: 0.84rem;
+  font-size: 0.85rem;
   position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .code-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 0.9rem;
-  background: var(--bg-surface);
+  padding: 0.55rem 1rem;
+  background: var(--code-header-bg);
   border-bottom: 1px solid var(--code-border);
-  font-size: 0.75rem;
-  color: var(--text-muted);
+  font-size: 0.76rem;
+  color: #8b949e;
 }
 
 .code-content {
-  padding: 1rem;
+  padding: 1.15rem;
   overflow-x: auto;
-  line-height: 1.6;
-  color: var(--text-primary);
+  line-height: 1.65;
+  color: var(--code-text);
+  background: var(--code-bg);
+}
+
+/* Inline Code vs Code Content */
+code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  background: #f1f5f9;
+  color: #0f172a;
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+}
+
+.code-content code,
+pre code {
+  background: transparent !important;
+  border: none !important;
+  color: var(--code-text) !important;
+  padding: 0 !important;
+  font-size: inherit;
 }
 
 /* Grid Layouts */

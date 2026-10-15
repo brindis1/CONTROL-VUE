@@ -340,12 +340,20 @@ const filteredEmployees = computed(() => {
 
 .bad-code-card {
   padding: 0.65rem 0.85rem;
-  background: rgba(244, 63, 94, 0.1);
-  border: 1px solid rgba(244, 63, 94, 0.3);
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+  border-left: 3px solid #ef4444;
   border-radius: var(--radius-sm);
   font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: #fca5a5;
+  font-size: 0.84rem;
+  color: #ff7b72;
+}
+
+.bad-code-card code {
+  background: transparent !important;
+  border: none !important;
+  color: #ff7b72 !important;
+  padding: 0 !important;
 }
 
 .solution-pills {

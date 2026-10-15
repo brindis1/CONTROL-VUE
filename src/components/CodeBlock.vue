@@ -96,15 +96,15 @@ const highlightedCode = computed(() => {
   border: 1px solid var(--code-border);
   margin: 1.2rem 0;
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .code-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.65rem 1rem;
-  background: rgba(0, 0, 0, 0.28);
+  padding: 0.55rem 1rem;
+  background: var(--code-header-bg);
   border-bottom: 1px solid var(--code-border);
 }
 
@@ -115,95 +115,96 @@ const highlightedCode = computed(() => {
 }
 
 .code-dot {
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   display: inline-block;
 }
 
-.code-dot.red { background: #ef4444; }
-.code-dot.yellow { background: #f59e0b; }
-.code-dot.green { background: #10b981; }
+.code-dot.red { background: #ff5f56; }
+.code-dot.yellow { background: #ffbd2e; }
+.code-dot.green { background: #27c93f; }
 
 .code-title {
   margin-left: 0.5rem;
   font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--text-secondary);
+  font-size: 0.78rem;
+  color: #8b949e;
   font-weight: 500;
 }
 
 .copy-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.25rem 0.6rem;
+  gap: 0.35rem;
+  padding: 0.22rem 0.55rem;
   border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #c9d1d9;
   font-family: var(--font-main);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 500;
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 
 .copy-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
-  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
 }
 
 .copy-btn.copied {
-  background: rgba(66, 184, 131, 0.2);
-  border-color: var(--vue-green);
-  color: var(--vue-green-light);
+  background: rgba(46, 160, 67, 0.25);
+  border-color: #3fb950;
+  color: #3fb950;
 }
 
 .copy-icon {
-  width: 14px;
-  height: 14px;
+  width: 13px;
+  height: 13px;
 }
 
 .text-vue {
-  color: var(--vue-green-light);
+  color: #3fb950;
 }
 
 .code-content {
   margin: 0;
-  padding: 1.25rem;
+  padding: 1.15rem;
   overflow-x: auto;
   font-family: var(--font-mono);
-  font-size: 0.88rem;
-  line-height: 1.7;
-  color: #e2e8f0;
+  font-size: 0.86rem;
+  line-height: 1.65;
+  color: var(--code-text);
+  background: var(--code-bg);
 }
 
 :deep(.token-tag) {
-  color: #f43f5e;
+  color: var(--syn-tag);
   font-weight: 600;
 }
 
 :deep(.token-directive) {
-  color: #38bdf8;
+  color: var(--syn-directive);
   font-weight: 600;
 }
 
 :deep(.token-attr) {
-  color: #fbbf24;
+  color: var(--syn-attr);
 }
 
 :deep(.token-string) {
-  color: #42b883;
+  color: var(--syn-string);
 }
 
 :deep(.token-keyword) {
-  color: #c084fc;
+  color: var(--syn-keyword);
   font-weight: 600;
 }
 
 :deep(.token-comment) {
-  color: #64748b;
+  color: var(--syn-comment);
   font-style: italic;
 }
 </style>

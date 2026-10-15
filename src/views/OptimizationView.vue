@@ -450,14 +450,17 @@ const memoSnippet = `<template>
 }
 
 .raw-box-demo code {
-  color: var(--accent-amber);
-  font-size: 1.05rem;
+  color: #ffa657 !important;
+  font-size: 1rem;
   display: block;
   margin-bottom: 0.5rem;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
 }
 
 .raw-box-demo p {
   font-size: 0.82rem;
-  color: var(--text-secondary);
+  color: #8b949e;
 }
 </style>
